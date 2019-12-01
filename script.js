@@ -30,6 +30,12 @@ window.onload=function(){
                     var words=str.split(" ")
                     words.map((word)=>{
 
+                        if(word.slice(5)=="<div>")
+                            word=word.substring(5,word.length-5)
+
+                        if(word.slice(-6)=="</div>")
+                            word=word.substring(0,word.length-6)
+
                         //crop at ends
                         while(word.slice(-1)=='.' || word.slice(-1)==',' || word.slice(-1)==')' ||word.slice(-1)=='!')
                             word=word.substring(0,word.length-1)
@@ -55,6 +61,7 @@ window.onload=function(){
     //search logic
     $('#search').click(()=>{
         
+        $("#search_result").html("")
         var search_word=$('#search_word').val()
         var count_docs=0
         var printed_docs={}

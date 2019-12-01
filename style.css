@@ -12,6 +12,11 @@ h3{
     margin: 10vh;
     overflow: scroll;
 }
+
+#search_result{
+    width:80vw;
+}
+
 #docs:focus{
     outline-color: black;
 }
