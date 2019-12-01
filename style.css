@@ -1,0 +1,20 @@
+h3{
+    width: 80vw;
+    margin: 5vh;
+}
+
+#docs{
+    height:40vh;
+    width:80vw;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 2px;
+    margin: 10vh;
+    overflow: scroll;
+}
+#docs:focus{
+    outline-color: black;
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}

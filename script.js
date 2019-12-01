@@ -65,6 +65,7 @@ window.onload=function(){
                 if(!printed_docs[x] && count_docs<10)
                     {
                         $('#search_result').append(map[x])
+                        $('#search_result').append("<br>")
                         count_docs++
                     }
                 printed_docs[x]=1
