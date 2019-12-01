@@ -18,6 +18,11 @@ window.onload=function(){
 
         if(before!=$(this).html())
             {
+                reverse_map={}
+                map={}
+                doc_count=0
+                word_to_doc_map={}
+
                 //doc splitting
                 var count=$(this).html().split('<div><br></div>')
 
@@ -44,6 +49,9 @@ window.onload=function(){
                         while(word.slice(0)=='.' || word.slice(0)==',' || word.slice(0)=='(' ||word.slice(0)=='!')
                             word=word.substring(1,word.length-1)
 
+                        //lowercase
+                        word=word.toLowerCase()
+                            
                           //initialize array if not there
                         if(!word_to_doc_map[word])
                             word_to_doc_map[word]=[]
@@ -57,6 +65,12 @@ window.onload=function(){
             }
 
     })
+
+    document.querySelector('div[contenteditable="true"]').addEventListener("paste", function(e) {
+        e.preventDefault();
+        var text = e.clipboardData.getData("text/plain");
+        document.execCommand("insertHTML", false, text);
+    });
 
     //search logic
     $('#search').click(()=>{
@@ -79,5 +93,11 @@ window.onload=function(){
             })
     })
 
+
+}
+
+function handleFile(file){
+    console.log(file[0].name)
+    var fileURL=URL.createObjectURL(file[0])
     
 }
